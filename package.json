@@ -10,7 +10,7 @@
     "start": "nf start"
   },
   "keywords": [],
-  "author": "",
+  "author": "Austin Shipp",
   "license": "ISC",
   "devDependencies": {
     "babel": "^6.23.0",

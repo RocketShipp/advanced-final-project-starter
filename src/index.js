@@ -19,11 +19,11 @@ app.use(authenticationRoutes);
 
 const authStrategy = passport.authenticate('authStrategy', { session: false});
 
-app.get('/api/secret', authStrategy, function (req, res, next) {
+app.get('/api/secret', authStrategy, function (req, res) {
   res.send(`The current user is ${req.user.username}`);
 });
 
-const port = process.env.PORT || 3001;
+const port = process.env.PORT || 5006;
 app.listen(port, () => {
   console.log(`Listening on port:${port}`);
 });

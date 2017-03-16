@@ -5,17 +5,17 @@ const User = require('../models/UserModel');
 const bcrypt = require('bcrypt-nodejs');
 const passport = require('passport');
 
-require('../services/passport');
+require('../services/passport.js');
 
-const signInStrategy = passport.authenticate('signInStrategy', { session: false });
+const signinStrategy = passport.authenticate('signinStrategy', { session: false });
 
 // Creates token for the user
 function tokenForUser(user) {
   const timestamp = new Date().getTime();
-  return jwt.encode({ userId: user.id, iat: timestamp}, process.env.SECRET);
+  return jwt.encode({ userId: user._id, iat: timestamp}, process.env.SECRET);
 }
 
-router.post('/api/signin', signInStrategy, function (req, res, next) {
+router.post('/api/signin', signinStrategy, function (req, res) {
   res.json({ token: tokenForUser(req.user)});
 });
 

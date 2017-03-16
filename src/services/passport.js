@@ -5,7 +5,7 @@ const { Strategy: JwtStrategy, ExtractJwt } = require('passport-jwt');
 const LocalStrategy = require('passport-local');
 
 const signinStrategy = new LocalStrategy(function (username, password, done) {
-  User.findOne({ username: username }).exec()
+  User.findOne({ username }).exec()
     .then(user => {
       // If no user, call done with NULL argument and false signifying error
       if (!user) {
