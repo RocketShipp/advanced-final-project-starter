@@ -7,15 +7,14 @@ class SignUp extends Component {
 
     this.state = {
       username: '',
-      password: '',
-      confirmPassword: '',
+      password: ''
     };
   }
 
   handleSubmit(event) {
     event.preventDefault();
 
-    this.props.onSignUp({
+    this.props.onSignIn({
       username: this.state.username,
       password: this.state.password,
       confirmPassword: this.state.confirmPassword
@@ -39,7 +38,7 @@ class SignUp extends Component {
             type="email"
             name="username"
             onChange={event => this.handleChange(event)}
-            placeholder="Enter Username"
+            placeholder="Username"
             value={this.state.username}
           />
         </FormGroup>
@@ -50,32 +49,21 @@ class SignUp extends Component {
             type="password"
             name="password"
             onChange={event => this.handleChange(event)}
-            placeholder="Enter Password"
+            placeholder="Password"
             value={this.state.password}
           />
         </FormGroup>
 
-        <FormGroup>
-          <ControlLabel>Confirm Password</ControlLabel>
-          <FormControl
-            type="password"
-            name="confirmPassword"
-            onChange={event => this.handleChange(event)}
-            placeholder="Confirm Password"
-            value={this.state.confirmPassword}
-          />
-        </FormGroup>
-
         <Button type="submit">
-         Sign Up
-       </Button>
+         Sign In
+        </Button>
       </form>
     );
   }
 }
 
 SignUp.propTypes = {
-  onSignUp: PropTypes.func.isRequired
+  onSignIn: PropTypes.func.isRequired
 };
 
 export default SignUp;

@@ -1,10 +1,10 @@
 import React, { PropTypes } from 'react';
-import { Navbar, Nav, NavItem } from 'react-bootstrap';
-import { Link } from 'react-router';
+import { Navbar, Nav, NavDropdown, MenuItem } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 
 const TopNavbar = (props) => {
   return (
-    <Navbar inverse collapseOnSelect>
+    <Navbar inverse collapseOnSelect id="myNav">
       <Navbar.Header>
         <Navbar.Brand>
           <Link to="/">Auth App</Link>
@@ -15,21 +15,23 @@ const TopNavbar = (props) => {
         props.showNavItems ?
           <Navbar.Collapse>
             <Nav pullRight>
-              <NavItem onClick={props.onSignOut}>Sign Out</NavItem>
+              <NavDropdown eventKey={1} title="My Account" id="basic-nav-dropdown"t>
+                <MenuItem eventKey={1.1} onClick={props.onSignOut}>Sign Out</MenuItem>
+                <MenuItem eventKey={1.2}>
+                  <Link className="linkTo" to="/secret">Secret</Link>
+                </MenuItem>
+              </NavDropdown>
             </Nav>
-            <Nav pullRight>
-              <Link to="/secret"><Navbar.Text>Secret</Navbar.Text></Link>
-            </Nav>
-          </Navbar.Collapse>
-          : null
+          </Navbar.Collapse> :
+          null
       }
     </Navbar>
   );
-}
+};
 
 TopNavbar.propTypes = {
   onSignOut: PropTypes.func.isRequired,
-  showNavItems: PropTypes.bool.isRequired
+  // showNavItems: PropTypes.boolean.isRequired
 };
 
 export default TopNavbar;

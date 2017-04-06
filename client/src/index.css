@@ -2,4 +2,27 @@ body {
   margin: 0;
   padding: 0;
   font-family: sans-serif;
+  height: 100%;
+  width: 100%;
+}
+.flexBoxCenterThis {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.linkTo, .linkTo:hover, .linkTo:focus, .linkTo:visited {
+  text-decoration: none;
+  color: inherit;
+  padding: 0;
+  margin: 0;
+}
+#myNav {
+  background-color: blue;
+  background-image: linear-gradient(to bottom, #00d80e 0%, #109000 100%);
+  border: none;
 }

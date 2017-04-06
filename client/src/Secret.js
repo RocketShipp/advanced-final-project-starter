@@ -18,7 +18,6 @@ class Secret extends Component {
     })
       .then(resp => {
         this.setState({
-          ...this.state,
           message: resp.data
         });
       })
@@ -27,7 +26,9 @@ class Secret extends Component {
 
   render() {
     return (
-      <h1>{this.state.message}</h1>
+      <div className="flexBoxCenterThis">
+        <h1>{this.state.message}</h1>
+      </div>
     );
   }
 }
